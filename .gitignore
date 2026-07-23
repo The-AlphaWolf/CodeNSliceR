@@ -7,3 +7,6 @@ dist-ssr
 coverage
 *.tsbuildinfo
 .vercel
+
+.vercel
+.env*

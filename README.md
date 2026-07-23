@@ -1,5 +1,7 @@
 # CodeNSliceR
 
+**Play it: [codenslicer.vercel.app](https://codenslicer.vercel.app)**
+
 A terminal-flavoured puzzle game in the spirit of *Human Resource Machine*, except the machine is a
 5G packet classifier. You write assembly with bit-manipulation instructions, decode a 32-bit packet
 header, and route traffic into network slices — eMBB, URLLC, mMTC, V2X, or the bin.
@@ -89,6 +91,8 @@ doubles as the test that proves the level is solvable at the par it advertises.
 
 ## Deploy
 
-Static build, no backend. `npm run build` emits `dist/`; point Vercel, Netlify or GitHub Pages at
-it. Progress lives in `localStorage`, with export/import from the campaign roster for moving
-solutions between browsers.
+Static build, no backend — live on Vercel at
+[codenslicer.vercel.app](https://codenslicer.vercel.app), redeployed from `main`.
+
+`npm run build` emits `dist/`; any static host will serve it. Progress lives in `localStorage`,
+with export/import from the campaign roster for moving solutions between browsers.
