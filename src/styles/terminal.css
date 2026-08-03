@@ -588,18 +588,16 @@ button {
   background: var(--bin-color);
 }
 
-.chip-slot {
-  border-style: solid;
+.bin .chip-slot {
   border-color: var(--line);
   background: transparent;
-  opacity: 0.6;
 }
 
 .ingress .chip {
   border-color: var(--dimmer);
 }
 
-.chip-next {
+.ingress .chip-next {
   border-color: var(--amber);
   background: rgba(240, 180, 41, 0.28);
 }
@@ -1012,7 +1010,7 @@ button {
 }
 
 .modal-fail {
-  border-color: #63302f;
+  border-color: #5c2b34;
 }
 
 .modal-head {
