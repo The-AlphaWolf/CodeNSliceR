@@ -39,7 +39,8 @@ export function EditorPane() {
       language: LANGUAGE_ID,
       theme: THEME_ID,
       automaticLayout: true,
-      fontFamily: '"JetBrains Mono", "Cascadia Mono", "Consolas", monospace',
+      fontFamily:
+        '"JetBrains Mono Variable", "JetBrains Mono", "Cascadia Mono", "Consolas", monospace',
       fontSize: 13,
       lineHeight: 20,
       glyphMargin: true,
@@ -56,6 +57,11 @@ export function EditorPane() {
 
     editor.current = instance;
     decorations.current = instance.createDecorationsCollection();
+
+    // Monaco measures the glyph box once, at creation. If JetBrains Mono is still
+    // loading then, every column is measured against the fallback and the cursor
+    // drifts from the text once the swap lands.
+    void document.fonts.ready.then(() => monaco.editor.remeasureFonts());
 
     const changeSub = instance.onDidChangeModelContent(() => {
       useGame.getState().setSource(instance.getValue());

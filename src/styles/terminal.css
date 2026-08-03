@@ -27,7 +27,10 @@
   --grid: rgba(46, 230, 160, 0.045);
   --edge: #2a5f57;
 
-  --mono: 'JetBrains Mono', 'Cascadia Mono', 'SF Mono', Consolas, 'Liberation Mono', monospace;
+  /* The Variable family is the one main.tsx ships; the rest is the fallback chain
+     for the moment before it lands. */
+  --mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'Cascadia Mono', 'SF Mono', Consolas,
+    'Liberation Mono', monospace;
 }
 
 * {

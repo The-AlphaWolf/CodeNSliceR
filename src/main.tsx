@@ -1,5 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+// Self-hosted, so the terminal reads the same on every machine instead of falling
+// back to whatever mono the OS happens to ship. Each face is split by unicode-range;
+// an English player only ever downloads the latin subset.
+import '@fontsource-variable/jetbrains-mono/wght.css';
+import '@fontsource-variable/jetbrains-mono/wght-italic.css';
 import { App } from './ui/App';
 import { useGame } from './state/store';
 import './styles/terminal.css';
