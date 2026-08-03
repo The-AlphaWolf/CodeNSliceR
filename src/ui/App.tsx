@@ -19,10 +19,18 @@ export function App() {
 
   return (
     <div className="app">
+      {/* Decorative corner rules of the blueprint frame. */}
+      <div className="frame" aria-hidden="true">
+        <i />
+        <i />
+        <i />
+        <i />
+      </div>
+
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark">CodeNSliceR</span>
-          <span className="brand-sub">5G slice classifier · terminal</span>
+          <span className="brand-sub">5G packet-classifier puzzle game</span>
         </div>
         <button className="btn btn-quiet level-button" onClick={() => setRosterOpen(true)}>
           <b>{level.id}</b> {level.title}

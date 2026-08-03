@@ -27,7 +27,12 @@ export function QueuePanel() {
           </div>
           <ul className="chip-list">
             {pending.map((p, i) => (
-              <li key={p.id} className={`chip${i === 0 ? ' chip-next' : ''}`} title={p.note}>
+              <li
+                key={p.id}
+                className={`chip${i === 0 ? ' chip-next' : ''}`}
+                title={p.note ? `#${p.id} — ${p.note}` : `#${p.id}`}
+                aria-label={`packet ${p.id}`}
+              >
                 #{p.id}
               </li>
             ))}
@@ -50,9 +55,18 @@ export function QueuePanel() {
                 </div>
                 <ul className="chip-list">
                   {ids.map((id) => (
-                    <li key={id} className={`chip${misrouted.has(id) ? ' chip-bad' : ''}`}>
+                    <li
+                      key={id}
+                      className={`chip${misrouted.has(id) ? ' chip-bad' : ''}`}
+                      title={misrouted.has(id) ? `#${id} — misrouted` : `#${id}`}
+                      aria-label={`packet ${id}${misrouted.has(id) ? ', misrouted' : ''}`}
+                    >
                       #{id}
                     </li>
+                  ))}
+                  {/* Unfilled slots, so the lane reads as progress towards the expected count. */}
+                  {Array.from({ length: Math.max(0, expected - ids.length) }, (_, i) => (
+                    <li key={`slot-${i}`} className="chip chip-slot" aria-hidden="true" />
                   ))}
                 </ul>
               </div>

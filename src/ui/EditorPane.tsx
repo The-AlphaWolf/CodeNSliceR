@@ -43,6 +43,7 @@ export function EditorPane() {
       fontSize: 13,
       lineHeight: 20,
       glyphMargin: true,
+      lineNumbers: (n) => String(n).padStart(2, '0'),
       minimap: { enabled: false },
       scrollBeyondLastLine: false,
       renderLineHighlight: 'line',
@@ -146,7 +147,15 @@ export function EditorPane() {
     collection.set(next);
   }, [breakpoints, program, vmState]);
 
-  return <div className="editor-host" ref={host} data-testid="editor" />;
+  return (
+    <div className="editor-card">
+      <div className="editor-title">
+        <span>slice_rules.asm</span>
+        <em>{program.instrs.length} instr</em>
+      </div>
+      <div className="editor-host" ref={host} data-testid="editor" />
+    </div>
+  );
 }
 
 /** Jump the editor to a line — used by the result modal to point at a fault. */
